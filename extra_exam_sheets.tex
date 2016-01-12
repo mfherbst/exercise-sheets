@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[left=1.5cm,right=1.5cm,top=0.5cm,bottom=0.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{lcg} % Random numbers
+\usepackage{color}
+
+% Initial command definitions
+\newcommand{\dateout}{\{Renewcommand \textbackslash dateout\}}
+\newcommand{\dateback}{\{Renewcommand \textbackslash dateback\}}
+\newcommand{\course}{\{Renewcommand \textbackslash course\}}
+\newcommand{\semester}{\{Renewcommand \textbackslash semester\}}
+\newcommand{\sheetno}{\{Renewcommand \textbackslash sheetno\}}
+\newcommand{\lecturer}{\{Renewcommand \textbackslash lecturer\}}
+
+\input{../common.tex}
+\input{date_vars.tex}
+
+% Random number stuff
+\newcommand{\random}{\rand\arabic{rand}}
+\definecolor{lgray}{gray}{0.6}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+	\normalsize
+	\sheetno.~Klausur~\course~\semester\\
+	\textbf{Zusatzblatt} \\[0.5cm]
+\end{center} 
+\begin{tabularx}{\textwidth}{XcX}
+	Aufgabe:     & \quad & Name: \\
+                     &       & Matrikel-Nr:
+\end{tabularx}  \\
+\noindent\rule{\textwidth}{0.4pt}
+
+\vfill
+\hfill {\footnotesize \textcolor{lgray}{\random}} 
+\end{document}
