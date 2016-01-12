@@ -236,14 +236,38 @@ generate_sheet() {
 	local NAME=$(sheet_name "$NUM")
 	local ISEXAM="$3"
 
+	# filename of the file containing the zettel latex class
+	ZETTELFILE="zettel.cls"
+
+	# directory in which this script is contained
+	local THISDIR
+	local ABSOLUTE
+	if ! ABSOLUTE=$(readlink "$0"); then
+		echo "WARNING: Something went wrong when determining the location of zettel.cls. There could be broken symlinks" >&2
+		THISDIR=".."
+	else
+		# find the dirname of the end of the neues_blatt file:
+		THISDIR=$(dirname "$ABSOLUTE")
+	
+	fi
+
+	if [ ! -f "${THISDIR}/${ZETTELFILE}" ]; then
+		echo "Could not determine location of ${ZETTELFILE}." >&2
+		echo "We guessed \"${THISDIR}/${ZETTELFILE}\", but it did not work." >&2
+		exit 1
+	fi
+
+	# We will access the stuff from one level below:
+	THISDIR="../$THISDIR"
+
 	mkdir "$NAME"
 	print_makefile "$NUM" "$2" > "$NAME/Makefile"
 	DATEVARS="date_vars.tex"
 	print_datevars "$NUM" > "$NAME/$DATEVARS"
 	print_tex "$DATEVARS" > "$NAME/$NAME.tex"
-	ln -t "$NAME" -s "../$(dirname "$0")/zettel.cls"
+	ln -t "$NAME" -s "${THISDIR}/${ZETTELFILE}"
 
-	[ "$ISEXAM" == "1" ] && ln -t "$NAME" -s "../$(dirname "$0")/extra_exam_sheets.tex" || true
+	[ "$ISEXAM" == "1" ] && ln -t "$NAME" -s "$THISDIR/extra_exam_sheets.tex" || true
 }
 
 usage() {
