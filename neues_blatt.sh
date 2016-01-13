@@ -228,6 +228,43 @@ ask_for_exam_start() {
 	date --date="$START" +"%Y-%m-%d +%H hours +%M minutes"
 }
 
+dir_of_myself() {
+	# echo the directory in which this script is contained
+	# try to do it in two ways
+	#   a) using a realative location
+	#   b) using an absolute location
+	# return 1 if it fails (will echo some message to stderr)
+
+	# Path to myself:
+	local ME="$0"
+
+	# If this is not the real path try the absolute one from the bash
+	if [ -f "$ME" ]; then
+		ME=${BASH_SOURCE[0]}
+	fi
+
+	# If we are a link: Undo that
+	if [ -h "$ME" ]; then
+		if ! ME=$(readlink "$ME"); then
+			echo "Could not read the link \"$ME\"." >&2
+			return 1
+		fi
+	fi
+
+	# get the dir I am located in
+	local MYDIR=$(dirname "$ME")
+
+	# checking: My basename:
+	local BN=$(basename "$0")
+
+	if ! [ -f "$MYDIR/$BN" ]; then
+		echo "Tryed to guess the location of the $BN script at \"$MYDIR/$BN\", but this turned out to be wrong." >&2
+		return 1
+	fi
+	echo "$MYDIR"
+	return 0	
+}
+
 generate_sheet() {
 	# $1: sheet number
 	# $2: Extra options for zettel.cls
@@ -239,35 +276,33 @@ generate_sheet() {
 	# filename of the file containing the zettel latex class
 	ZETTELFILE="zettel.cls"
 
-	# directory in which this script is contained
-	local THISDIR
-	local ABSOLUTE
-	if ! ABSOLUTE=$(readlink "$0"); then
-		echo "WARNING: Something went wrong when determining the location of zettel.cls. There could be broken symlinks" >&2
-		THISDIR=".."
-	else
-		# find the dirname of the end of the neues_blatt file:
-		THISDIR=$(dirname "$ABSOLUTE")
-	
-	fi
-
-	if [ ! -f "${THISDIR}/${ZETTELFILE}" ]; then
-		echo "Could not determine location of ${ZETTELFILE}." >&2
-		echo "We guessed \"${THISDIR}/${ZETTELFILE}\", but it did not work." >&2
+	# find the actual location of this very script
+	local MYDIR
+	if ! MYDIR=$(dir_of_myself); then
+		echo "Something went wrong when determining the location of zettel.cls." >&2
 		exit 1
 	fi
 
-	# We will access the stuff from one level below:
-	THISDIR="../$THISDIR"
+	# an extra check
+	if [ ! -f "${MYDIR}/${ZETTELFILE}" ]; then
+		echo "Could not determine location of ${ZETTELFILE}." >&2
+		echo "We guessed \"${MYDIR}/${ZETTELFILE}\", but it did not work." >&2
+		exit 1
+	fi
+
+	if [ "${MYDIR:0:1}" != "/" ]; then
+		# We are relative:
+		MYDIR="../$MYDIR"
+	fi
 
 	mkdir "$NAME"
 	print_makefile "$NUM" "$2" > "$NAME/Makefile"
 	DATEVARS="date_vars.tex"
 	print_datevars "$NUM" > "$NAME/$DATEVARS"
 	print_tex "$DATEVARS" > "$NAME/$NAME.tex"
-	ln -t "$NAME" -s "${THISDIR}/${ZETTELFILE}"
+	ln -t "$NAME" -s "${MYDIR}/${ZETTELFILE}"
 
-	[ "$ISEXAM" == "1" ] && ln -t "$NAME" -s "$THISDIR/extra_exam_sheets.tex" || true
+	[ "$ISEXAM" == "1" ] && ln -t "$NAME" -s "$MYDIR/extra_exam_sheets.tex" || true
 }
 
 usage() {
