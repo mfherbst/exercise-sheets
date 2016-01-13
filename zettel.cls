@@ -43,23 +43,16 @@
 \LoadClass[a4paper]{article}
 
 %-------------------------------------
-%% Load packages:
-
-% Spelling and encoding:
-\usepackage{ngerman}
-\usepackage[utf8]{inputenc}
+%% Load packages we require:
 \usepackage{forloop}
 
 % maths and formatting
-\usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{amssymb}
-
-\usepackage[left=3.5cm,right=3.5cm,top=4cm,bottom=4cm]{geometry}
-\usepackage{url}
 \usepackage[tight]{units}
 \usepackage{color}
-\usepackage{graphicx}
+
+% TODO hardcoded geometry!
+\usepackage[left=3.5cm,right=3.5cm,top=4cm,bottom=4cm]{geometry}
 
 \if@showsolutions
 	\usepackage[nosolutionfiles]{answers}
@@ -223,37 +216,4 @@
 % spit out the total no of points in a formatted way
 \newcommand{\totalpnt}{\unit[\arabic{totalpoints}]{\pointname}}
 
-%-------------------------------------
-
-% Complex numbers:
-\DeclareMathOperator{\I}{\imath}
-\DeclareMathOperator{\Real}{Re}
-\DeclareMathOperator{\Imag}{Im}
-\renewcommand{\Re}{\Real}
-\renewcommand{\Im}{\Imag}
-\newcommand*{\cconj}[1]{\ensuremath{#1^\ast}}
-\newcommand*{\trnsp}[1]{\ensuremath{#1^{\dagger}}}
-\DeclareMathOperator{\sgn}{sgn}
-
-% Integration:
-\newcommand{\D}{\ensuremath \; \mathrm{d}}
-
-% Vector calculus and LA
-\newcommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}
-\newcommand*{\norm}[1]{\ensuremath{\left\lVert#1\right\rVert}}
-\newcommand*{\Op}[1]{\ensuremath{\hat{\mathcal{#1}}}}
-\newcommand*{\op}[1]{\ensuremath{\hat{\mathrm{#1}}}}
-\renewcommand*{\vec}[1]{\ensuremath{\underline{\boldsymbol{#1}}}}	%vector
-\newcommand*{\uvec}[1]{\ensuremath{\hat{\underline{\boldsymbol{#1}}}}}	%unit vector
-\newcommand*{\mat}[1]{\ensuremath{\mathbf{#1}}}
-
-% Sets:
-\newcommand*{\set}[1]{\ensuremath{\mathbb{#1}}}
-\newcommand*{\fos}[1]{\ensuremath{\mathcal{#1}}}
-\newcommand{\R}{\set{R}}
-\newcommand{\N}{\set{N}}
-\newcommand{\C}{\set{C}}
-\newcommand{\Z}{\set{Z}}
-
-%-------------------------------------
 \endinput
