@@ -82,7 +82,7 @@
 
 % Setup file and environments where solutions go to 
 \Newassociation{sol}{Solution}{ans}
-\renewenvironment{Solution}[1]{\color{red} \begin{paragraph}{Lösung #1.}}{\end{paragraph}}
+\renewenvironment{Solution}[1]{\color{red} \begin{paragraph}{L\"osung #1.}}{\end{paragraph}}
 
 % Theorem definition for Notes:
 \newtheorem*{nte}{Beachten Sie}
@@ -150,12 +150,12 @@
 		Bitte beachten Sie die folgenden Hinweise zur Klausur:
 		\begin{itemize}
 			\item Auf den folgenden Seiten finden Sie die Klausurfragen. 
-				Sie dürfen diese \textbf{erst lesen, sobald die Klausurzeit läuft}.
-			\item Vervollständigen Sie auf diesem Deckblatt Name und Matrikelnummer.
-			\item Die Benutzung von Formelsammlungen, Büchern, Taschenrechnern und anderen elektronischen Hilfsmitteln
-				 ist untersagt und wird als Täuschungsversuch gewertet.
-			\item Sollte der Platz des Klausurbogens nicht ausreichen, bekommen Sie von uns \textbf{zusätzliches Papier}. 
-				Achten Sie jedoch sorgfältig darauf, dass Sie auch \textbf{auf jedes zusätzliche Blatt} 
+				Sie d\"urfen diese \textbf{erst lesen, sobald die Klausurzeit l\"auft}.
+			\item Vervollst\"andigen Sie auf diesem Deckblatt Name und Matrikelnummer.
+			\item Die Benutzung von Formelsammlungen, B\"uchern, Taschenrechnern und anderen elektronischen Hilfsmitteln
+				 ist untersagt und wird als T\"auschungsversuch gewertet.
+			\item Sollte der Platz des Klausurbogens nicht ausreichen, bekommen Sie von uns \textbf{zus\"atzliches Papier}. 
+				Achten Sie jedoch sorgf\"altig darauf, dass Sie auch \textbf{auf jedes zus\"atzliche Blatt} 
 				Ihren \textbf{Namen} und Ihre \textbf{Matrikelnummer} schreiben.
 		\end{itemize}
 		\vfill
@@ -176,7 +176,7 @@
 		\begin{center}
 			\Large{\course \ \semester}\\[0.3cm]
 			\normalsize{\lecturer}\\[0.6cm]
-			\textbf{Übungsblatt \sheetno}
+			\textbf{\"Ubungsblatt \sheetno}
 			\hfill
 			\begin{tabular}{rcr}
 			Ausgabe: & \quad & \dateout \\

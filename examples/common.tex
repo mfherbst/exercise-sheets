@@ -1,13 +1,8 @@
-\renewcommand{\course}{Name of the course taught}
-\renewcommand{\semester}{Semester of the course}
-\renewcommand{\lecturer}{People giving the course}
-
 %
 % Packages used in all sheets:
 %
 
-% Input and language
-\usepackage{ngerman}
+% Input encoding
 \usepackage[utf8]{inputenc}
 
 % Maths
@@ -18,21 +13,14 @@
 \usepackage{url}
 \usepackage{graphicx}
 
-% ...
-
 %
 % Frequently used commands
 %
 
 % Complex numbers:
 \newcommand{\I}{\imath}
-\DeclareMathOperator{\Real}{Re}
-\DeclareMathOperator{\Imag}{Im}
-\renewcommand{\Re}{\Real}
-\renewcommand{\Im}{\Imag}
 \newcommand*{\cconj}[1]{\ensuremath{#1^\ast}}
 \newcommand*{\trnsp}[1]{\ensuremath{#1^{\dagger}}}
-\DeclareMathOperator{\sgn}{sgn}
 
 % Integration:
 \newcommand{\D}{\ensuremath \, \text{d}}
@@ -43,7 +31,6 @@
 \newcommand*{\Op}[1]{\ensuremath{\hat{\mathcal{#1}}}}
 \newcommand*{\op}[1]{\ensuremath{\hat{\mathrm{#1}}}}
 \renewcommand*{\vec}[1]{\ensuremath{\underline{\boldsymbol{#1}}}}	%vector
-\newcommand*{\uvec}[1]{\ensuremath{\hat{\underline{\boldsymbol{#1}}}}}	%unit vector
 \newcommand*{\mat}[1]{\ensuremath{\mathbf{#1}}}
 
 % Sets:
@@ -54,4 +41,10 @@
 \newcommand{\C}{\set{C}}
 \newcommand{\Z}{\set{Z}}
 
-% ...
+%
+% Definition of important variables
+%
+
+\renewcommand{\course}{Name of the course taught}
+\renewcommand{\semester}{Semester of the course}
+\renewcommand{\lecturer}{People giving the course}
