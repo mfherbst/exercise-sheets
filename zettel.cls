@@ -89,7 +89,7 @@
 
 % Change enumerate items:
 \renewcommand{\labelenumi}{(\alph{enumi})}
-\renewcommand{\labelenumii}{(\arabic{enumii})}
+\renewcommand{\labelenumii}{(\roman{enumii})}
 
 % Macro to produce the point table
 \newcommand{\pointtable}{%
@@ -157,6 +157,7 @@
 			\item Sollte der Platz des Klausurbogens nicht ausreichen, bekommen Sie von uns \textbf{zus\"atzliches Papier}. 
 				Achten Sie jedoch sorgf\"altig darauf, dass Sie auch \textbf{auf jedes zus\"atzliche Blatt} 
 				Ihren \textbf{Namen} und Ihre \textbf{Matrikelnummer} schreiben.
+			\item Verdeutlichen Sie bei allen Aufgaben Ihren \textbf{L\"osungsweg} oder \textbf{begr\"unden} Sie Ihre Antworten.
 		\end{itemize}
 		\vfill
 		\begin{center}
