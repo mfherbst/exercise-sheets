@@ -113,12 +113,12 @@
 	$\Sigma$ \\
 	\hline
 	\forloop{ai}{1}{\value{ai} < \value{totalex}}{%
-		\qquad & %
+		\hspace{1.5em} & %
 	}
-	\ifthenelse{\value{totalex} = 0}{}{ %
-		\qquad & %
+	\ifthenelse{\value{totalex} = 0}{}{%
+		\hspace{1.5em} & %
 	}
-	\quad / \totalpnt
+	\quad \quad / \totalpnt\\[0.5em]
 	\end{tabular}%
 }
 
@@ -161,14 +161,17 @@
 		\end{itemize}
 		\vfill
 		\begin{center}
-			\large
+			\Large
 			\begin{tabular}{rcr}
 			Name:         & \quad & \hspace{15em} \\
 			Matrikel-Nr:  &       & \hspace{8em}
 			\end{tabular}
 
 			\vspace{1cm}
+			{
+			\LARGE
 			\pointtable
+			}
 			\vspace{1cm}
 		\end{center}
 		\newpage
