@@ -219,5 +219,7 @@
 \newcommand{\pnt}[1]{\unit[#1]{\pointname}}
 % spit out the total no of points in a formatted way
 \newcommand{\totalpnt}{\unit[\arabic{totalpoints}]{\pointname}}
+% Show the number of points on the rhs of the page
+\newcommand{\pntrhs}[1]{\hfill(\pnt{#1})}
 
 \endinput
