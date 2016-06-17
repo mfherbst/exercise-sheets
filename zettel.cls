@@ -22,6 +22,12 @@
   \@awardpointsfalse
 }
 
+%% Show date and time or not?
+\newif\if@showdatetime\@showdatetimetrue
+\DeclareOption{nodatetime}{
+  \@showdatetimefalse
+}
+
 %% Exam mode or not?
 \newif\if@exam\@examfalse
 \DeclareOption{exam}{
@@ -122,6 +128,15 @@
 	\end{tabular}%
 }
 
+% Command to produce the title of the sheet
+\newcommand{\thesheettitle}{%
+	\if@exam%
+		\textbf{\sheetno. Klausur zur Vorlesung}%
+	\else%
+		\textbf{\"Ubungsblatt \sheetno}%
+	\fi%
+}
+
 % The basic environment in which the sheet lives:
 \newenvironment{zettel}{%
 	% Set solution output file and sheet number counter:
@@ -133,20 +148,24 @@
 		\thispagestyle{empty}
 		\vspace{2cm}
 		\begin{center}
-			\textbf{\sheetno. Klausur zur Vorlesung}\\[0.3cm]
+			\thesheettitle\\[0.3cm]
 			\Large{\course \ \semester}\\[0.3cm]
 			\normalsize{\lecturer}
 		\end{center}
 
-		\vspace{1cm}
-		{
-			\hfill
-			\normalsize
-			\begin{tabular}{rcr}
-			ungef. Beginn:       &       & \dateout \\
-			ungef. Ende:         &       & \dateback \\[0.5cm]
-			\end{tabular}
-		} \\[2cm]
+		\if@showdatetime
+			\vspace{1cm}
+			{
+				\hfill
+				\normalsize
+				\begin{tabular}{rcr}
+				ungef. Beginn:       &       & \dateout \\
+				ungef. Ende:         &       & \dateback \\[0.5cm]
+				\end{tabular}
+			} \\[2cm]
+		\else
+			\vspace{3cm}
+		\fi
 		Bitte beachten Sie die folgenden Hinweise zur Klausur:
 		\begin{itemize}
 			\item Auf den folgenden Seiten finden Sie die Klausurfragen. 
@@ -180,12 +199,16 @@
 		\begin{center}
 			\Large{\course \ \semester}\\[0.3cm]
 			\normalsize{\lecturer}\\[0.6cm]
-			\textbf{\"Ubungsblatt \sheetno}
+			\thesheettitle
 			\hfill
+			\if@showdatetime%
 			\begin{tabular}{rcr}
 			Ausgabe: & \quad & \dateout \\
 			Abgabe:  &       & \dateback
 			\end{tabular}\\[0.3cm]
+			\else%
+			~
+			\fi%
 
 			% Read restored stuff from file
 			\if@awardpoints
