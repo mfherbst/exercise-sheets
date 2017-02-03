@@ -174,8 +174,9 @@
 			\item Die Benutzung von Formelsammlungen, B\"uchern, Taschenrechnern und anderen elektronischen Hilfsmitteln
 				 ist untersagt und wird als T\"auschungsversuch gewertet.
 			\item Sollte der Platz des Klausurbogens nicht ausreichen, bekommen Sie von uns \textbf{zus\"atzliches Papier}. 
-				Achten Sie jedoch sorgf\"altig darauf, dass Sie auch \textbf{auf jedes zus\"atzliche Blatt} 
-				Ihren \textbf{Namen} und Ihre \textbf{Matrikelnummer} schreiben.
+				Achten Sie sorgf\"altig darauf, dass Sie \textbf{auf jedem zus\"atzlichen Blatt} 
+				Ihren \textbf{Namen}, Ihre \textbf{Matrikelnummer}
+				und die Nummern der auf diesem Blatt bearbeiteten Aufgaben angeben.
 			\item Verdeutlichen Sie bei allen Aufgaben Ihren \textbf{L\"osungsweg} oder \textbf{begr\"unden} Sie Ihre Antworten.
 		\end{itemize}
 		\vfill
