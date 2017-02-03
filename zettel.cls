@@ -176,7 +176,7 @@
 			\item Sollte der Platz des Klausurbogens nicht ausreichen, bekommen Sie von uns \textbf{zus\"atzliches Papier}. 
 				Achten Sie sorgf\"altig darauf, dass Sie \textbf{auf jedem zus\"atzlichen Blatt} 
 				Ihren \textbf{Namen}, Ihre \textbf{Matrikelnummer}
-				und die Nummern der auf diesem Blatt bearbeiteten Aufgaben angeben.
+				und die Nummern der auf diesem Blatt bearbeiteten \textbf{Aufgaben} angeben.
 			\item Verdeutlichen Sie bei allen Aufgaben Ihren \textbf{L\"osungsweg} oder \textbf{begr\"unden} Sie Ihre Antworten.
 		\end{itemize}
 		\vfill
